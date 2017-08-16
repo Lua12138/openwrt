@@ -139,6 +139,15 @@ ifneq ($(CONFIG_VDI_IMAGES),)
   endef
 endif
 
+ifneq ($(CONFIG_VHD_IMAGES),)
+  define Image/Build/vhd
+        rm $(BIN_DIR)/$(IMG_PREFIX)-combined-$(1).vhd || true
+        qemu-img convert -f raw -O vpc \
+                $(BIN_DIR)/$(IMG_PREFIX)-combined-$(1).img \
+                $(BIN_DIR)/$(IMG_PREFIX)-combined-$(1).vhd
+  endef
+endif
+
 ifneq ($(CONFIG_VMDK_IMAGES),)
   define Image/Build/vmdk
 	rm $(BIN_DIR)/$(IMG_PREFIX)-combined-$(1).vmdk || true
@@ -218,6 +227,7 @@ define Image/Build
   ifneq ($(1),iso)
 	$(call Image/Build/grub2,$(1))
 	$(call Image/Build/vdi,$(1))
+	$(call Image/Build/vhd,$(1))
 	$(call Image/Build/vmdk,$(1))
 	$(CP) $(KDIR)/root.$(1) $(BIN_DIR)/$(IMG_PREFIX)-rootfs-$(1).img
   else
