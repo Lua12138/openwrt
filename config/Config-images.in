@@ -232,14 +232,14 @@ menu "Target Images"
 		select PACKAGE_kmod-e1000
 
 	config VHD_IMAGES
-    bool "Build Hyper-V image files (VHD)"
-    depends on TARGET_x86 || TARGET_x86_64
-    select GRUB_IMAGES
-    select TARGET_IMAGES_PAD 
-    select PACKAGE_kmod-hyperv-balloon
-    select PACKAGE_kmod-hyperv-net-vsc
-    select PACKAGE_kmod-hyperv-util
-    select PACKAGE_kmod-hyperv-storage
+  	bool "Build Hyper-V image files (VHD)"
+		depends on TARGET_x86 || TARGET_x86_64
+		select GRUB_IMAGES
+		select TARGET_IMAGES_PAD 
+		select PACKAGE_kmod-hyperv-balloon
+		select PACKAGE_kmod-hyperv-net-vsc
+		select PACKAGE_kmod-hyperv-util
+		select PACKAGE_kmod-hyperv-storage
 
 	config VMDK_IMAGES
 		bool "Build VMware image files (VMDK)"
