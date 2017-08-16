@@ -144,7 +144,7 @@ define KernelPackage/xen-kbddev
   TITLE:=Xen virtual keyboard and mouse
   DEPENDS:=@TARGET_x86_xen_domu +kmod-input-core
   KCONFIG:=CONFIG_INPUT_MISC=y \
-	CONFIG_INPUT_XEN_KBDDEV_FRONTEND
+  CONFIG_INPUT_XEN_KBDDEV_FRONTEND
   FILES:=$(LINUX_DIR)/drivers/input/misc/xen-kbdfront.ko
   AUTOLOAD:=$(call AutoLoad,08,xen-kbdfront)
 endef
@@ -195,10 +195,10 @@ define KernelPackage/hyperv-balloon
   DEPENDS:=@(TARGET_x86||TARGET_x86_64)
   TITLE:=Microsoft Hyper-V Balloon Driver
   KCONFIG:= \
-		CONFIG_HYPERV_BALLOON \
-		CONFIG_HYPERVISOR_GUEST=y \
-		CONFIG_PARAVIRT=n \
-		CONFIG_HYPERV=y
+  	CONFIG_HYPERV_BALLOON \
+  	CONFIG_HYPERVISOR_GUEST=y \
+  	CONFIG_PARAVIRT=n \
+  	CONFIG_HYPERV=y
   FILES:=$(LINUX_DIR)/drivers/hv/hv_balloon.ko
   AUTOLOAD:=$(call AutoLoad,06,hv_balloon)
 endef
@@ -214,10 +214,10 @@ define KernelPackage/hyperv-net-vsc
   DEPENDS:=@(TARGET_x86||TARGET_x86_64)
   TITLE:=Microsoft Hyper-V Network Driver
   KCONFIG:= \
-		CONFIG_HYPERV_NET \
-		CONFIG_HYPERVISOR_GUEST=y \
-		CONFIG_PARAVIRT=n \
-		CONFIG_HYPERV=y
+  	CONFIG_HYPERV_NET \
+  	CONFIG_HYPERVISOR_GUEST=y \
+  	CONFIG_PARAVIRT=n \
+  	CONFIG_HYPERV=y
   FILES:=$(LINUX_DIR)/drivers/net/hyperv/hv_netvsc.ko
   AUTOLOAD:=$(call AutoLoad,35,hv_netvsc)
 endef
@@ -233,10 +233,10 @@ define KernelPackage/hyperv-util
   DEPENDS:=@(TARGET_x86||TARGET_x86_64)
   TITLE:=Microsoft Hyper-V Utility Driver
   KCONFIG:= \
-		CONFIG_HYPERV_UTILS \
-		CONFIG_HYPERVISOR_GUEST=y \
-		CONFIG_PARAVIRT=n \
-		CONFIG_HYPERV=y
+  	CONFIG_HYPERV_UTILS \
+  	CONFIG_HYPERVISOR_GUEST=y \
+  	CONFIG_PARAVIRT=n \
+  	CONFIG_HYPERV=y
   FILES:=$(LINUX_DIR)/drivers/hv/hv_util.ko
   AUTOLOAD:=$(call AutoLoad,10,hv_util)
 endef
@@ -255,10 +255,10 @@ define KernelPackage/hyperv-storage
   DEPENDS:=@(TARGET_x86||TARGET_x86_64) +kmod-scsi-core
   TITLE:=Microsoft Hyper-V Storage Driver
   KCONFIG:= \
-		CONFIG_HYPERV_STORAGE=y \
-		CONFIG_HYPERVISOR_GUEST=y \
-		CONFIG_PARAVIRT=n \
-		CONFIG_HYPERV=y
+  	CONFIG_HYPERV_STORAGE=y \
+  	CONFIG_HYPERVISOR_GUEST=y \
+  	CONFIG_PARAVIRT=n \
+  	CONFIG_HYPERV=y
   FILES:=$(LINUX_DIR)/drivers/scsi/hv_storvsc.ko
   AUTOLOAD:=$(call AutoLoad,40,hv_storvsc)
 endef
