@@ -144,7 +144,7 @@ ifneq ($(CONFIG_VHD_IMAGES),)
 	rm $(BIN_DIR)/$(IMG_PREFIX)-combined-$(1).vhd || true
 	qemu-img convert -f raw -O vpc \
 		$(BIN_DIR)/$(IMG_PREFIX)-combined-$(1).img \
-		(BIN_DIR)/$(IMG_PREFIX)-combined-$(1).vhd
+		$(BIN_DIR)/$(IMG_PREFIX)-combined-$(1).vhd
   endef
 endif
 
